@@ -1,19 +1,33 @@
 import math
-
+import unittest
 
 def area(r):
-    '''
-    Возвращает квадрат числа, умноженный на число Пи.
-    :param r: десятичное число.
-    :return: дробное число, состоящее из произведения r на самого себя и на число Пи.
-    '''
     return math.pi * r * r
 
-
 def perimeter(r):
-    '''
-    Возвращает число, удвоенное и умноженное на число Пи.
-    :param r: десятичное число.
-    :return: дробное число, состоящее из произведения r на 2 и на число Пи.
-    '''
     return 2 * math.pi * r
+
+class CircleTestCase(unittest.TestCase):
+    def test_area_zero(self):
+        res = area(0)
+        self.assertEqual(res, 0)
+
+    def test_area_simple(self):
+        res = area(12)
+        self.assertEqual(res, 452.38934)
+
+    def test_area_big(self):
+        res = area(250)
+        self.assertEqual(res, 196349.54085)
+
+    def test_perimeter_zero(self):
+        res = perimeter(0)
+        self.assertEqual(res, 0)
+
+    def test_perimeter_simple(self):
+        res = perimeter(15)
+        self.assertEqual(res, 94.24778)
+
+    def test_perimeter_big(self):
+        res = perimeter(270)
+        self.assertEqual(res, 1696.46003)
