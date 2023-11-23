@@ -17,8 +17,8 @@ class SquareTestCase(unittest.TestCase):
         self.assertEqual(res, 25)
 
     def test_area_big(self):
-        res = area(2500)
-        self.assertEqual(res, 6250000)
+        res = area(-20)
+        self.assertEqual(res, "Error")
 
     def test_perimeter_zero(self):
         res = perimeter(0)
@@ -29,5 +29,5 @@ class SquareTestCase(unittest.TestCase):
         self.assertEqual(res, 28)
 
     def test_perimeter_big(self):
-        res = perimeter(1000)
-        self.assertEqual(res, 4000)
+        res = perimeter(-11)
+        self.assertEqual(res, "Error")

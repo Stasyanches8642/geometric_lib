@@ -16,8 +16,8 @@ class RectangleTestCase(unittest.TestCase):
         self.assertEqual(res, 40)
 
     def test_area_big(self):
-        res = area(2500, 5700)
-        self.assertEqual(res, 14250000)
+        res = area(-3, -7)
+        self.assertEqual(res, "Error")
 
     def test_perimeter_zero(self):
         res = perimeter(0, 0)
@@ -28,5 +28,5 @@ class RectangleTestCase(unittest.TestCase):
         self.assertEqual(res, 40)
 
     def test_perimeter_big(self):
-        res = perimeter(8600, 3047)
-        self.assertEqual(res, 23294)
+        res = perimeter(-8, 4)
+        self.assertEqual(res, "Error")
