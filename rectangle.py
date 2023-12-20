@@ -1,10 +1,13 @@
 import unittest
 
+
 def area(a, b):
     return a * b 
 
+
 def perimeter(a, b):
     return (a + b) * 2
+
 
 class RectangleTestCase(unittest.TestCase):
     def test_area_zero(self):
@@ -16,8 +19,8 @@ class RectangleTestCase(unittest.TestCase):
         self.assertEqual(res, 40)
 
     def test_area_big(self):
-        res = area(-3, -7)
-        self.assertEqual(res, "Error")
+        with self.assertRaises(ValueError) as context:
+            result = area(-3, -7)
 
     def test_perimeter_zero(self):
         res = perimeter(0, 0)
@@ -28,5 +31,5 @@ class RectangleTestCase(unittest.TestCase):
         self.assertEqual(res, 40)
 
     def test_perimeter_big(self):
-        res = perimeter(-8, 4)
-        self.assertEqual(res, "Error")
+        with self.assertRaises(ValueError) as context:
+            result = area(-8, 4)
