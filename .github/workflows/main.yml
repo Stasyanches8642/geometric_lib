@@ -1,0 +1,42 @@
+name: Test CI
+
+on:
+  push:
+    branches: ["cicd_409769"]
+  pull_request:
+    branches: ["cicd_409769"]
+
+jobs:
+  test-on-ubuntu-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+          architecture: x64
+      - name: Run tests
+        run: |
+          python -m unittest "circle.py"
+          python -m unittest "triangle.py"
+          python -m unittest "rectangle.py"
+          python -m unittest "square.py"
+
+  tests-on-windows-latest:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+          architecture: x64
+      - name: Run tests
+        run: |
+          python -m unittest "circle.py"
+          python -m unittest "triangle.py"
+          python -m unittest "rectangle.py"
+          python -m unittest "square.py"
